@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 export default class EvenAndOdd extends Component {
+  //
+  // Initial State
+  //
   constructor() {
     super();
     this.state = {
@@ -9,8 +12,12 @@ export default class EvenAndOdd extends Component {
       userInput: "",
     };
   }
-  handleChange(a) {
-    this.setState({ userInput: a });
+
+  //
+  // Functions
+  //
+  handleChange(input) {
+    this.setState({ userInput: input });
   }
   submit(b) {
     let even = [];
@@ -27,6 +34,9 @@ export default class EvenAndOdd extends Component {
     this.setState({ evenArray: even, oddArray: odd });
   }
 
+  //
+  // Rendered HTML
+  //
   render() {
     return (
       <div className="puzzleBox evenAndOddPB">
@@ -34,11 +44,13 @@ export default class EvenAndOdd extends Component {
         <input
           className="inputLine"
           onChange={(e) => this.handleChange(e.target.value)}
-        ></input>
+        />
         <button
           className="confirmationButton"
           onClick={() => this.submit(this.state.userInput)}
-        >Odd or Even?</button>
+        >
+          Odd or Even?
+        </button>
         <span className="resultsBox">Evens: [{this.state.evenArray}]</span>
         <span className="resultsBox">Odds: [{this.state.oddArray}]</span>
       </div>
